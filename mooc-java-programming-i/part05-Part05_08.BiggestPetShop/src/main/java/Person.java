@@ -10,16 +10,18 @@ public class Person {
     }
 
     public Person(String name) {
+
         this(name, new Pet("Toothless", "dragon"));
     }
 
     public Person() {
+
         this("Lilo", new Pet("Stitch", "blue alien"));
     }
 
     @Override
     public String toString() {
-        return this.nimi;
+        return this.name+", "+this.pet.getName()+", "+this.pet.getBreed();
     }
 
 }
