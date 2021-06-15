@@ -4,13 +4,16 @@ import java.util.ArrayList;
 public class GradeRegister {
 
     private ArrayList<Integer> grades;
+    private ArrayList<Integer> points;
 
     public GradeRegister() {
         this.grades = new ArrayList<>();
+        this.points=new ArrayList<>();
     }
 
     public void addGradeBasedOnPoints(int points) {
         this.grades.add(pointsToGrade(points));
+        this.points.add(points);
     }
 
     public int numberOfGrades(int grade) {
@@ -43,4 +46,35 @@ public class GradeRegister {
 
         return grade;
     }
+
+    public double averageOfGrades(){
+        int sumOfGrade=0;
+        if (grades.size()==0){
+            return -1;
+        }
+
+        for(Integer x:grades){
+            sumOfGrade+=x;
+        }
+
+        return (sumOfGrade*1.0)/grades.size();
+    }
+
+
+    public double averageOfPoints(){
+        int sumOfGrade=0;
+        if (points.size()==0){
+            return -1;
+        }
+
+        for(Integer x:points){
+            sumOfGrade+=x;
+        }
+
+        return (sumOfGrade*1.0)/points.size();
+    }
+
+
+
+
 }

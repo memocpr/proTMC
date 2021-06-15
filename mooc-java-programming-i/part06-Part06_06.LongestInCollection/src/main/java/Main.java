@@ -6,13 +6,13 @@ public class Main {
 
         // Try out your class here
         SimpleCollection c = new SimpleCollection("characters");
-        System.out.println("Pisin: " + c.longest());
+        System.out.println(c.longest());
         
         c.add("magneto");
         c.add("mystique");
         c.add("phoenix");
         
-        System.out.println("Longest: " + c.longest());
+        System.out.println(c.longest());
 
         
     }
