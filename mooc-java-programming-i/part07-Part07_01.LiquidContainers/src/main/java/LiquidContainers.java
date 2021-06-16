@@ -9,8 +9,6 @@ public class LiquidContainers {
         int first=0;
         int second=0;
 
-
-
         while (true) {
             System.out.println("First: "+first+"/100");
             System.out.println("Second: "+second+"/100");
@@ -58,9 +56,6 @@ public class LiquidContainers {
                     }
                 }
             }
-
-
         }
     }
-
 }
