@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Searching {
@@ -41,14 +42,59 @@ public class Searching {
             System.out.println("Found it! " + books.get(binarySearchId));
         }
 
+
+       /* ArrayList<Book> books = new ArrayList<>();
+
+        books.add(new Book(5, "A"));
+        books.add(new Book(7, "B"));
+        books.add(new Book(9, "C"));
+        books.add(new Book(14, "D"));
+
+        int indexSearched = binarySearch(books, 9);
+
+        if (indexSearched< 0) {
+            System.out.println("Book not found");
+        } else {
+            System.out.println("Found it! " + books.get(indexSearched));
+        }
+
+        System.out.println(indexSearched);*/
     }
 
     public static int linearSearch(ArrayList<Book> books, int searchedId) {
+        for (int i=0; i<books.size(); i++){
+            int oneId=books.get(i).getId();
+            if(searchedId==oneId){
+                return i;
+            }
+        }
         return -1;
     }
 
     public static int binarySearch(ArrayList<Book> books, long searchedId) {
-        return -1;
+
+        int startIndex = 0;
+        int endIndex = books.size() - 1;
+        int midIndex = 0;
+
+        while (true) {
+            if(endIndex<startIndex){
+                return -1;
+            }
+
+            midIndex = ((startIndex + endIndex) / 2);
+
+            if (searchedId > books.get(midIndex).getId()) {
+                startIndex = midIndex + 1;
+                continue;
+            } else if (searchedId < books.get(midIndex).getId()) {
+                endIndex = midIndex - 1;
+                continue;
+            } else if (searchedId == books.get(midIndex).getId()) {
+                return midIndex;
+            }
+
+        }
     }
 }
 
