@@ -22,6 +22,15 @@ public class Recipe {
        return name+", cooking time: "+time;
     }
 
+    public String getName(){
+        return name;
+    }
 
+    public int getTime(){
+        return time;
+    }
 
+    public ArrayList<String> getIngredients(){
+        return ingredients;
+    }
 }

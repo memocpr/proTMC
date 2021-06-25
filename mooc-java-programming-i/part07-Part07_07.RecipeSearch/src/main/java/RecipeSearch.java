@@ -34,25 +34,33 @@ public class RecipeSearch {
             }
 
             if (str.equals("list")){
-                /*ArrayList<String> strs=list(textLines);
                 System.out.println("Recipes:");
-                for (String x:strs){
-                    System.out.println(x);
-                }*/
-
                 showRecipes(textLines);
-
             }
 
             if (str.equals("find name")){
-                /*System.out.println("Searched word:");
+                System.out.println("Searched word:");
                 str=scanner.nextLine();
-                System.out.println(search(textLines, str));*/
-
+                System.out.println("Recipes:");
+                findRecipeByName(textLines, str);
 
             }
-        }
 
+            if (str.equals("find cooking time")){
+                System.out.println("Max cooking time:");
+                str=scanner.nextLine();
+                System.out.println("Recipes:");
+                findRecipeByTime(textLines, Integer.valueOf(str));
+            }
+
+            if (str.equals("find ingredient")){
+                System.out.println("Ingredient:");
+                str=scanner.nextLine();
+                System.out.println("Recipes:");
+                findRecipeByIng(textLines, str);
+            }
+
+        }
     }
     /*
 
@@ -149,8 +157,6 @@ public class RecipeSearch {
         }
     }*/
 
-
-
     public static ArrayList<Recipe> separation(ArrayList<String> list){
 
         ArrayList<Recipe> recipes=new ArrayList<>();
@@ -204,6 +210,40 @@ public class RecipeSearch {
         ArrayList<Recipe> recipes=separation(list);
         for (Recipe rc:recipes){
             System.out.println(rc);
+        }
+    }
+
+    public static void findRecipeByName(ArrayList<String> list, String name){
+
+        ArrayList<Recipe> recipes=separation(list);
+        for (Recipe rc:recipes){
+            if (rc.getName().contains(name)){
+                System.out.println(rc);
+            }
+        }
+    }
+
+    public static void findRecipeByTime(ArrayList<String> list, int time){
+
+        ArrayList<Recipe> recipes=separation(list);
+        for (Recipe rc:recipes){
+            if (rc.getTime()<=time){
+                System.out.println(rc);
+            }
+        }
+    }
+
+    public static void findRecipeByIng(ArrayList<String> list, String ing){
+
+        ArrayList<Recipe> recipes=separation(list);
+        for (Recipe rc:recipes){
+            ArrayList<String> ingredients=rc.getIngredients();
+
+            for (String oneIng:ingredients){
+                if (oneIng.equals(ing)){
+                    System.out.println(rc);
+                }
+            }
         }
     }
 
