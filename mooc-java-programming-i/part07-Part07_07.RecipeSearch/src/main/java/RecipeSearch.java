@@ -128,8 +128,7 @@ public class RecipeSearch {
         }
     }*/
 
-    /*
-    // while loop
+    /*// while loop
     public static void list(ArrayList<String> list){
 
         int start=0;
@@ -192,7 +191,7 @@ public class RecipeSearch {
             oneRecipe=new Recipe(name, time, ing);
             recipes.add(oneRecipe);
 
-            // check if index of empty line is same
+            // check if index of empty line is same, if yes it means there is no empty space and recipes
             if (start==check){
                 break;
             }else {
