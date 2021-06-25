@@ -40,7 +40,8 @@ public class RecipeSearch {
                     System.out.println(x);
                 }*/
 
-                list(textLines);
+                showRecipes(textLines);
+
             }
 
             if (str.equals("find name")){
@@ -150,16 +151,19 @@ public class RecipeSearch {
 
 
 
-    public static void list(ArrayList<String> list){
+    public static ArrayList<Recipe> separation(ArrayList<String> list){
 
+        ArrayList<Recipe> recipes=new ArrayList<>();
         int start=0;
         int check=0;
 
-        String name;
-        int time;
-        ArrayList<String> ing=new ArrayList<>();
-
         while (true){
+
+            String name=null;
+            int time=0;
+            ArrayList<String> ing=new ArrayList<>();
+            Recipe oneRecipe;
+
             for (int y=start; y<list.size(); y++){
 
                 if (list.get(y).equals("")){
@@ -168,25 +172,38 @@ public class RecipeSearch {
                 }
 
                 if (y==start){
-                    System.out.println("name :"+list.get(y));
+                    //System.out.println("name :"+list.get(y));
                     name=list.get(y);
                 }else if(y==start+1){
-                    System.out.println("time :"+Integer.valueOf(list.get(y)));
+                    //System.out.println("time :"+Integer.valueOf(list.get(y)));
                     time=Integer.valueOf(list.get(y));
                 }else {
-                    System.out.println("ing: "+list.get(y));
+                    //System.out.println("ing: "+list.get(y));
                     ing.add(list.get(y));
                 }
             }
 
-            //Recipe recipe=new Recipe();
+            oneRecipe=new Recipe(name, time, ing);
+            recipes.add(oneRecipe);
 
+            // check if index of empty line is same
             if (start==check){
                 break;
             }else {
                 check=start;
             }
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            //System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        }
+
+        //System.out.println(recipes.size());
+        return recipes;
+    }
+
+    public static void showRecipes(ArrayList<String> list){
+
+        ArrayList<Recipe> recipes=separation(list);
+        for (Recipe rc:recipes){
+            System.out.println(rc);
         }
     }
 
