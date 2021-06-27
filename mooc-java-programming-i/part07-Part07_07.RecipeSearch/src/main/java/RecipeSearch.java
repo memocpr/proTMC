@@ -163,7 +163,6 @@ public class RecipeSearch {
         int check=0;
 
         while (true){
-
             String name=null;
             int time=0;
             ArrayList<String> ing=new ArrayList<>();
