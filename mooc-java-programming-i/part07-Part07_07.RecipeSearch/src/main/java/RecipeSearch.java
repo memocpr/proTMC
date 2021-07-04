@@ -13,6 +13,7 @@ public class RecipeSearch {
         System.out.println("File to read :");
         String str=scanner.nextLine();
 
+        // put the external source inside an internal source
         try (Scanner sc=new Scanner(Paths.get(str))){
             while (sc.hasNextLine()){
                 str=sc.nextLine();
@@ -26,9 +27,11 @@ public class RecipeSearch {
         System.out.println("list - lists recipes");
         System.out.println("stop - stops the problem");
 
+        // commands
         while (true){
             System.out.println("Enter command:");
             str=scanner.nextLine();
+
             if (str.equals("stop")){
                 break;
             }
