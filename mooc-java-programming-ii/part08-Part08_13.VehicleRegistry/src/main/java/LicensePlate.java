@@ -19,4 +19,36 @@ public class LicensePlate {
         return country + " " + liNumber;
     }
 
+    public boolean equals(Object comparedObject){
+
+        if (this==comparedObject){
+            return  true;
+        }
+
+        if (!(comparedObject instanceof LicensePlate)){
+            return false;
+        }
+
+        LicensePlate comparedDate=(LicensePlate) comparedObject;
+
+        if (this.liNumber==comparedDate.liNumber && this.country==comparedDate.country){
+            return true;
+        }
+
+        return false;
+    }
+
+    public int hashCode() {
+
+        int num=0;
+
+        if (this.country == null) {
+            String[] arr=liNumber.split("-");
+            num=Integer.valueOf(arr[1]);
+            return num;
+        }
+
+        return  num + this.country.hashCode();
+    }
+
 }

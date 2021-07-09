@@ -51,4 +51,21 @@ public class SimpleDate {
         return this.year - other.year - yearRemoved;
     }
 
+
+    public int hashCode() {
+        /*if (this.name == null) {
+            return this.published;
+        }
+
+        return this.published + this.name.hashCode();*/
+
+
+        if (this.day==0){
+            return this.day+this.month+this.year+this.hashCode();
+        }
+
+        return this.hashCode();
+
+    }
+
 }

@@ -23,9 +23,9 @@ public class Main {
         System.out.println("Finnish: " + finnishPlates);
         // if the equals-method hasn't been overwritten, the same license number will be added to the list againg
         
-        HashMap<LicensePlate, String> owners = new HashMap<>();
-        owners.put(li1, "Arto");
-        owners.put(li3, "Jürgen");
+        VehicleRegistry owners = new VehicleRegistry();
+        owners.add(li2, "Tom");
+        owners.add(li3, "Jürgen");
 
         System.out.println("owners:");
         System.out.println(owners.get(new LicensePlate("FI", "ABC-123")));

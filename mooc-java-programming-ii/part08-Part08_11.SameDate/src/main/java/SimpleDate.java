@@ -1,3 +1,4 @@
+import java.awt.print.Book;
 
 public class SimpleDate {
 
@@ -49,6 +50,27 @@ public class SimpleDate {
         }
 
         return this.year - other.year - yearRemoved;
+    }
+
+
+    public boolean equals(Object comparedObject){
+
+        if (this==comparedObject){
+            return  true;
+        }
+
+        if (!(comparedObject instanceof SimpleDate)){
+            return false;
+        }
+
+        SimpleDate comparedDate=(SimpleDate) comparedObject;
+
+        if (this.year==comparedDate.year && this.month==comparedDate.month && this.day==comparedDate.day){
+            return true;
+        }
+
+        return false;
+
     }
 
 }
