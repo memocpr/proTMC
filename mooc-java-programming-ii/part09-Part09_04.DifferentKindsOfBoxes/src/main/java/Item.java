@@ -21,4 +21,25 @@ public class Item {
         return weight;
     }
 
+
+    @Override
+    public int hashCode() {
+
+        return this.name.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object comparedObj) {
+        if(this==comparedObj){
+            return true;
+        }
+        if(!(comparedObj instanceof Item)){
+            return false;
+        }
+
+        Item comparedItem=(Item) comparedObj;
+
+        return this.name.equals(comparedItem.name);
+
+    }
 }

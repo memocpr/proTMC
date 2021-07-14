@@ -7,7 +7,7 @@ public abstract class Box {
 
     public void add(ArrayList<Item> items) {
         for (Item item : items) {
-            Box.this.add(item);
+            this.add(item);
         }
     }
 
