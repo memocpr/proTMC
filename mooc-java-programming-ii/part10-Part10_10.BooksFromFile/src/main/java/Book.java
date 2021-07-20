@@ -29,4 +29,9 @@ public class Book {
         return pageCount;
     }
 
+    public String toString(){
+
+        return getName()+", "+getPublishingYear()+", "+getPagecount()+", "+getAuthor();
+    }
+
 }
